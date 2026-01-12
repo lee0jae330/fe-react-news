@@ -1,1 +1,177 @@
 @import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: 'Pretendard Variable';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 45 920;
+  src: url('/fonts/PretendardVariable.woff2') format('woff2');
+}
+
+:root {
+  /* Color default value  */
+  --grayscale-white-70: #ffffffb3;
+  --grayscale-white: #ffffff;
+  --grayscale-50: #f5f7f9;
+  --grayscale-100: #d2dae0;
+  --grayscale-200: #879298;
+  --grayscale-300: #6b6e91;
+  --grayscale-400: #5f6e76;
+  --grayscale-500: #4b5960;
+  --grayscale-black: #14121b;
+
+  --blue-100: #7890e7;
+  --blue-500: #4362d0;
+
+  /* Color System: light mode */
+  --text-strong: var(--grayscale-black);
+  --text-bold: var(--grayscale-500);
+  --text-default: var(--grayscale-400);
+  --text-weak: var(--grayscale-200);
+
+  --text-white-default: var(--grayscale-white);
+  --text-white-weak: var(--grayscale-white-70);
+
+  --text-point: var(--blue-500);
+
+  --surface-default: var(--grayscale-white);
+  --surface-alt: var(--grayscale-50);
+  --surface-brand-default: var(--blue-500);
+  --surface-brand-alt: var(--blue-100);
+
+  --border-bold: var(--grayscale-300);
+  --border-default: var(--grayscale-100);
+}
+
+/* Color System: dark mode */
+.dark {
+  --text-strong: var(--grayscale-white);
+  --text-bold: var(--grayscale-50);
+  --text-default: var(--grayscale-100);
+  --text-weak: var(--grayscale-white-70);
+
+  --text-white-default: var(--grayscale-white);
+  --text-white-weak: var(--grayscale-white-70);
+
+  --text-point: var(--blue-500);
+
+  --surface-default: var(--grayscale-black);
+  --surface-alt: var(--grayscale-500);
+  --surface-brand-default: var(--blue-500);
+  --surface-brand-alt: var(--blue-100);
+
+  --border-bold: var(--grayscale-white-70);
+  --border-default: var(--grayscale-400);
+}
+
+@theme {
+  --font-display: 'Pretendard Variable', sans-serif;
+  --color-text-strong: var(--text-strong);
+  --color-text-bold: var(--text-bold);
+  --color-text-default: var(--text-default);
+  --color-text-weak: var(--text-weak);
+  --color-text-white-default: var(--text-white-default);
+  --color-text-white-weak: var(--text-white-weak);
+  --color-text-point: var(--text-point);
+  --color-surface-default: var(--surface-default);
+  --color-surface-alt: var(--surface-alt);
+  --color-surface-brand-default: var(--surface-brand-default);
+  --color-surface-brand-alt: var(--surface-brand-alt);
+  --color-border-bold: var(--border-bold);
+  --color-border-default: var(--border-default);
+
+  --radius-100: 8px;
+  --radius-full: 999px;
+
+  --shadow-box-shadow:
+    0 4px 2px rgb(20 33 43 / 2%), 0 2px 18px rgb(20 33 43 / 8%);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-display);
+  }
+}
+
+@utility bold-lg {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+@utility bold-md {
+  font-size: 1rem;
+  font-weight: 700;
+}
+@utility bold-rg {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+@utility bold-sm {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+@utility medium-md {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.375rem;
+}
+@utility medium-rg {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+@utility medium-sm {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+@utility display-bold-24 {
+  @apply bold-lg;
+}
+@utility display-bold-16 {
+  @apply bold-md;
+}
+@utility display-bold-14 {
+  @apply bold-rg;
+}
+@utility display-bold-12 {
+  @apply bold-sm;
+}
+@utility display-medium-16 {
+  @apply medium-md;
+}
+@utility display-medium-14 {
+  @apply medium-rg;
+}
+@utility display-medium-12 {
+  @apply medium-sm;
+}
+
+@utility selected-bold-16 {
+  @apply bold-md;
+}
+@utility selected-bold-14 {
+  @apply bold-rg;
+}
+
+@utility available-medium-16 {
+  @apply medium-md;
+}
+@utility available-medium-14 {
+  @apply medium-rg;
+}
+@utility available-medium-12 {
+  @apply medium-sm;
+}
+
+@utility hover-medium-16 {
+  @apply medium-md underline;
+}
+@utility hover-medium-14 {
+  @apply medium-rg underline;
+}
+
+@utility border-default {
+  @apply border border-border-default;
+}
