@@ -7,13 +7,16 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
     "preview": "vite preview",
-    "format": "prettier --write --cache './src/**/*'",
+    "format": "prettier --write --cache './src/**/*.{js,jsx,ts,tsx,json,css,md}'",
     "prepare": "husky"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.18"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
