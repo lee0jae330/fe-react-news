@@ -2,6 +2,8 @@
 
 # 페어프로그래밍 계획
 
+- 데일리 스크럼 때 일간 계획 작성하기
+
 ## 1월 12일 (월)
 
 - 프로젝트 세팅
@@ -10,10 +12,11 @@
     - tailwindcss
       - 디자인 시스템
   - 컨벤션 관리
-    - eslint, prettier, husky
+    - eslint, prettier
+    - husky
   - 서버
     - msw (mocking)
-  -
+- 정적 레이아웃 구현
 
 ## 1월 13일 (화)
 
