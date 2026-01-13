@@ -1,4 +1,5 @@
 import ListViewIcon from '@/6-shared/assets/list-view.svg?react';
+import { IconButton } from '@/6-shared/ui';
 
 interface ListViewModeTabProps {
   isSelected: boolean;
@@ -10,11 +11,10 @@ export const ListViewModeTab = ({
   onClick,
 }: ListViewModeTabProps) => {
   return (
-    <button
+    <IconButton
       className={`${isSelected ? 'text-text-point' : 'text-text-weak'}`}
       onClick={onClick}
-    >
-      <ListViewIcon className="size-6" />
-    </button>
+      icon={<ListViewIcon className="size-6" />}
+    />
   );
 };

@@ -1,4 +1,5 @@
 import GridViewIcon from '@/6-shared/assets/grid-view.svg?react';
+import { IconButton } from '@/6-shared/ui';
 
 interface GridViewModeTabProps {
   isSelected: boolean;
@@ -10,11 +11,10 @@ export const GridViewModeTab = ({
   onClick,
 }: GridViewModeTabProps) => {
   return (
-    <button
+    <IconButton
       className={`${isSelected ? 'text-text-point' : 'text-text-weak'}`}
       onClick={onClick}
-    >
-      <GridViewIcon className="size-6" />
-    </button>
+      icon={<GridViewIcon className="size-6" />}
+    />
   );
 };
