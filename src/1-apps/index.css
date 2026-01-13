@@ -92,6 +92,7 @@
 @layer base {
   body {
     font-family: var(--font-display);
+    background-color: var(--surface-default);
   }
 }
 
@@ -173,5 +174,5 @@
 }
 
 @utility border-default {
-  @apply border border-border-default;
+  @apply border-border-default border;
 }
