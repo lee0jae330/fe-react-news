@@ -11,7 +11,7 @@ export const SubscribedPressTab = ({
 }: SubscribedPressTabProps) => {
   return (
     <button
-      className={`flex items-center gap-1 ${isSelected ? 'selected-bold-16 text-text-strong' : 'available-medium-16 text-text-weak'}`}
+      className={`flex cursor-pointer items-center gap-1 ${isSelected ? 'selected-bold-16 text-text-strong' : 'available-medium-16 text-text-weak'}`}
       onClick={onClick}
     >
       내가 구독한 언론사
