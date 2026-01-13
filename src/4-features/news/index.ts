@@ -7,4 +7,5 @@ export {
   GridViewModeTab,
   PreviousPageButton,
   NextPageButton,
+  GridViewItem,
 } from './ui';
