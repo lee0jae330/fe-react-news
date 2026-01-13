@@ -6,3 +6,4 @@ export { ListViewModeTab } from './ListViewModeTab';
 export { GridViewModeTab } from './GridViewModeTab';
 export { PreviousPageButton } from './PreviousPageButton';
 export { NextPageButton } from './NextPageButton';
+export { GridViewItem } from './GridViewItem';
