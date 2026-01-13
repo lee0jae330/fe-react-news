@@ -1,3 +1,9 @@
+import { RollingSection } from './RollingSection';
+
 export const NewsStandMain = () => {
-  return <main>main</main>;
+  return (
+    <main>
+      <RollingSection />
+    </main>
+  );
 };
