@@ -1,1 +1,8 @@
-export { NewsStandLogo, RollingItem } from './ui';
+export {
+  NewsStandLogo,
+  RollingItem,
+  TotalPressTab,
+  SubscribedPressTab,
+  ListViewModeTab,
+  GridViewModeTab,
+} from './ui';

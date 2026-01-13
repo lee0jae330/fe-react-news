@@ -1,2 +1,6 @@
 export { NewsStandLogo } from './NewsStandLogo';
 export { RollingItem } from './RollingItem';
+export { TotalPressTab } from './TotalPressTab';
+export { SubscribedPressTab } from './SubscribedPressTab';
+export { ListViewModeTab } from './ListViewModeTab';
+export { GridViewModeTab } from './GridViewModeTab';
