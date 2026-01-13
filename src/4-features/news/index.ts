@@ -5,4 +5,6 @@ export {
   SubscribedPressTab,
   ListViewModeTab,
   GridViewModeTab,
+  PreviousPageButton,
+  NextPageButton,
 } from './ui';

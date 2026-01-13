@@ -4,3 +4,5 @@ export { TotalPressTab } from './TotalPressTab';
 export { SubscribedPressTab } from './SubscribedPressTab';
 export { ListViewModeTab } from './ListViewModeTab';
 export { GridViewModeTab } from './GridViewModeTab';
+export { PreviousPageButton } from './PreviousPageButton';
+export { NextPageButton } from './NextPageButton';
