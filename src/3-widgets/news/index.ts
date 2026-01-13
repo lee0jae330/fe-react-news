@@ -1,1 +1,1 @@
-export { NewsStandHeader, NewsStandMain } from './ui';
+export { NewsStandHeader, NewsStandMain, ViewModeTabGroup } from './ui';
