@@ -1,2 +1,7 @@
-export { LatestNewsPress, LatesNewsTitle } from './ui';
-export { SubscribedPressCount } from './ui';
+export {
+  LatestNewsPress,
+  LatesNewsTitle,
+  PressLogo,
+  SubscribedPressCount,
+} from './ui';
+export type { News, RelatedArticle } from './types';
