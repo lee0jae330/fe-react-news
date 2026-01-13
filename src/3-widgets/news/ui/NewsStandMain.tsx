@@ -1,4 +1,5 @@
 import { NewsStandTabBar } from './NewsStandTabBar';
+import { PressSection } from './PressSection';
 import { RollingSection } from './RollingSection';
 
 export const NewsStandMain = () => {
@@ -6,6 +7,7 @@ export const NewsStandMain = () => {
     <main className="flex flex-col">
       <RollingSection />
       <NewsStandTabBar />
+      <PressSection />
     </main>
   );
 };
