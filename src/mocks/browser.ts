@@ -1,5 +1,13 @@
 import { setupWorker } from 'msw/browser';
 
-import { pressSubscriptionsHandler } from './handlers/pressSubscriptionHandlers.ts';
+import {
+  newsHandlers,
+  pressHandlers,
+  pressSubscriptionsHandler,
+} from './handlers';
 
-export const worker = setupWorker(...pressSubscriptionsHandler);
+export const worker = setupWorker(
+  ...pressSubscriptionsHandler,
+  ...pressHandlers,
+  ...newsHandlers,
+);

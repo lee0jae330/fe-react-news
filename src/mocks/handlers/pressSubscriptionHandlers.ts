@@ -19,6 +19,7 @@ export const pressSubscriptionsHandler = [
     });
   }),
 
+  // 언론사 구독
   http.post('/api/presses/subscriptions/:pressId', ({ params }) => {
     subscriptions.add(params.pressId as string);
     return HttpResponse.json({
@@ -26,6 +27,7 @@ export const pressSubscriptionsHandler = [
     });
   }),
 
+  // 언론사 구독 해지
   http.delete('/api/presses/subscriptions/:pressId', ({ params }) => {
     subscriptions.delete(params.pressId as string);
     return HttpResponse.json({

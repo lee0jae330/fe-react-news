@@ -1,0 +1,62 @@
+// src/mocks/handlers/presses.ts
+import { http, HttpResponse } from 'msw';
+
+import { categories } from '../data/categories';
+import { presses } from '../data/presses';
+import type { Press } from '../types/press';
+
+export const pressHandlers = [
+  // 그리드 뷰 언론사 목록
+  http.get('/api/presses/grid', () => {
+    const gridViewPressList = presses.map((p: Press) => ({
+      pressId: p.press,
+      pressName: p.press,
+      logo: p.logo,
+      darkLogo: p.darkLogo,
+    }));
+
+    return HttpResponse.json({
+      presses: gridViewPressList,
+    });
+  }),
+
+  // 리스트 뷰 언론사 카테고리 목록
+  http.get('/api/presses/categories', () => {
+    const categoryList = categories.map((categoryName) => ({
+      categoryId: categoryName,
+      categoryName,
+    }));
+
+    return HttpResponse.json({
+      categories: categoryList,
+    });
+  }),
+
+  // 리스트 뷰 카테고리별 언론사 목록 및 주요 기사
+  http.get('/api/presses/list', ({ request }) => {
+    const url = new URL(request.url);
+    const category = url.searchParams.get('category');
+
+    if (!category) {
+      return new HttpResponse('category is required', { status: 400 });
+    }
+    if (!categories.includes(category)) {
+      return new HttpResponse('invalid category', { status: 400 });
+    }
+
+    const pressesInCategory = presses
+      .filter((p: Press) => p.category === category)
+      .map((p: Press) => ({
+        pressId: p.press,
+        pressName: p.press,
+        logo: p.logo,
+        darkLogo: p.darkLogo,
+        mainArticle: p.mainTitle,
+        relatedArticles: p.relatedArticles,
+      }));
+
+    return HttpResponse.json({
+      presses: pressesInCategory,
+    });
+  }),
+];
