@@ -1,7 +1,7 @@
 import { http, HttpResponse } from 'msw';
 
-import type { Press } from './data/presses.ts';
-import { presses } from './data/presses.ts';
+import type { Press } from '../data/presses.ts';
+import { presses } from '../data/presses.ts';
 
 const subscriptions = new Set<string>();
 presses.forEach((press: Press, index: number) => {
