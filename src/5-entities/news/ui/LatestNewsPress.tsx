@@ -3,5 +3,9 @@ interface LatestNewsPressProps {
 }
 
 export const LatestNewsPress = ({ pressName }: LatestNewsPressProps) => {
-  return <span className="display-bold-14 text-text-strong">{pressName}</span>;
+  return (
+    <span className="display-bold-14 text-text-strong shrink-0">
+      {pressName}
+    </span>
+  );
 };

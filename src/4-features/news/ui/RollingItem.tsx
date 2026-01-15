@@ -20,7 +20,7 @@ export const RollingItem = ({
   return (
     <div
       style={style}
-      className="absolute flex items-center gap-4 transition-transform duration-500"
+      className="absolute flex min-w-0 items-center gap-4 transition-transform duration-500"
       ref={ref}
     >
       <LatestNewsPress pressName={latestNews.pressName} />
