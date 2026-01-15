@@ -1,19 +1,30 @@
-import type { RefObject } from 'react';
+import type { CSSProperties, RefObject } from 'react';
 
-import { LatesNewsTitle, LatestNewsPress } from '@/5-entities/news';
+import {
+  LatesNewsTitle,
+  type LatestNewsList,
+  LatestNewsPress,
+} from '@/5-entities/news';
 
 interface RollingItemProps {
   ref: RefObject<HTMLDivElement | null>;
+  latestNews: LatestNewsList['latestNewsList'][number];
+  style?: CSSProperties;
 }
 
-export const RollingItem = ({ ref }: RollingItemProps) => {
+export const RollingItem = ({
+  ref,
+  latestNews,
+  style = {},
+}: RollingItemProps) => {
   return (
     <div
+      style={style}
       className="absolute flex items-center gap-4 transition-transform duration-500"
       ref={ref}
     >
-      <LatestNewsPress />
-      <LatesNewsTitle />
+      <LatestNewsPress pressName={latestNews.pressName} />
+      <LatesNewsTitle title={latestNews.title} />
     </div>
   );
 };
