@@ -1,1 +1,0 @@
-export { getSubscriptions } from './subscriptions';
