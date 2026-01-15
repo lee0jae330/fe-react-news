@@ -6,5 +6,5 @@ interface LatestNews {
 }
 
 export interface LatestNewsList {
-  latestNews: LatestNews[];
+  latestNewsList: LatestNews[];
 }

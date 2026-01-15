@@ -20,7 +20,7 @@ export const pressHandlers = [
     }));
 
     return HttpResponse.json({
-      latestNews: latest,
+      latestNewsList: latest,
     });
   }),
 
