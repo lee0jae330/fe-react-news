@@ -10,7 +10,8 @@
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
     "preview": "vite preview",
     "format": "prettier --write --cache './src/**/*.{js,jsx,ts,tsx,json,css,md}'",
-    "prepare": "husky"
+    "prepare": "husky",
+    "ts:check": "tsc --noEmit"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
