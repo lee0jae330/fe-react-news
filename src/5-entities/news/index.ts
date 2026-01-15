@@ -6,3 +6,4 @@ export {
 } from './ui';
 
 export { API_ENDPOINTS } from './constants';
+export type { LatestNewsList } from './types';
