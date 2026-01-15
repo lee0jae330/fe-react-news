@@ -1,6 +1,7 @@
 import type { RelatedArticle } from './relatedArticle';
 
 export interface News {
+  id: string;
   category: string;
   totalPage: string;
   logo: string;
