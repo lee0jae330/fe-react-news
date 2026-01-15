@@ -6,4 +6,4 @@ export {
 } from './ui';
 export type { News, RelatedArticle } from './types';
 
-export { getSubscriptions } from './api';
+export { API_ENDPOINTS } from './constants';
