@@ -1,6 +1,4 @@
-import type { Press } from '../types/press';
-
-export const presses: Press[] = [
+export const presses: Schema.Press[] = [
   {
     category: '종합/경제',
     totalPage: '83',

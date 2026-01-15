@@ -1,10 +1,8 @@
-import type { News } from './news';
-
 interface LatestNews {
-  pressId: News['id'];
-  pressName: News['press'];
-  title: News['mainTitle'];
-  url: News['mainLink'];
+  pressId: Schema.Press['press'];
+  pressName: Schema.Press['press'];
+  title: Schema.Press['mainTitle'];
+  url: Schema.Press['mainLink'];
 }
 
 export interface LatestNewsList {

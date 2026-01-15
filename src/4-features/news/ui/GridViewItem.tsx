@@ -1,15 +1,15 @@
 import { useCallback, useState } from 'react';
 
-import { type News, PressLogo } from '@/5-entities/news';
+import { PressLogo } from '@/5-entities/news';
 
 import { PRESS_SUBSCRIBE_BUTTON_BACKGROUND_COLOR } from '../constants';
 
 import { PressSubscribeToggle } from './PressSubscribeToggle';
 
 interface GridViewItemProps {
-  press?: News['press'];
-  logo?: News['logo'];
-  darkLogo?: News['darkLogo'];
+  press?: Schema.Press['press'];
+  logo?: Schema.Press['logo'];
+  darkLogo?: Schema.Press['darkLogo'];
 }
 
 export const GridViewItem = ({ press, logo, darkLogo }: GridViewItemProps) => {

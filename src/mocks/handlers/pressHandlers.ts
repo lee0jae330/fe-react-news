@@ -3,7 +3,8 @@ import { http, HttpResponse } from 'msw';
 
 import { categories } from '../data/categories';
 import { presses } from '../data/presses';
-import type { Press } from '../types/press';
+
+type Press = Schema.Press;
 
 export const pressHandlers = [
   // 최신 뉴스 10개

@@ -1,9 +1,7 @@
-import type { News } from '../types';
-
 interface PressLogoProps {
-  press: News['press'];
-  logo: News['logo'];
-  darkLogo: News['darkLogo'];
+  press: Schema.Press['press'];
+  logo: Schema.Press['logo'];
+  darkLogo: Schema.Press['darkLogo'];
 }
 
 export const PressLogo = ({ press, logo, darkLogo }: PressLogoProps) => {

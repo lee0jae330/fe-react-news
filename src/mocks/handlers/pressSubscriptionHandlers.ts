@@ -1,7 +1,8 @@
 import { http, HttpResponse } from 'msw';
 
 import { presses } from '../data/presses';
-import type { Press } from '../types/press';
+
+type Press = Schema.Press;
 
 const subscriptions = new Set<string>();
 presses.forEach((press: Press, index: number) => {
