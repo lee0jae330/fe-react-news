@@ -6,4 +6,4 @@ export {
 } from './ui';
 
 export { API_ENDPOINTS } from './constants';
-export type { LatestNewsList } from './types';
+export type { LatestNewsList, GridViewPressList } from './types';
