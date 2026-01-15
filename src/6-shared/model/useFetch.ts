@@ -1,27 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 interface UseFetchArgs {
   url: string;
   option?: RequestInit;
 }
 export const useFetch = <T>({ url, option }: UseFetchArgs) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<Error | null>(null);
+
+  const memoizedOption = useMemo(() => {
+    return {
+      ...option,
+      headers: {
+        'Content-Type': 'application/json',
+        ...option?.headers,
+      },
+    };
+  }, [option]);
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       setIsError(false);
       try {
-        const response = await fetch(url, {
-          ...option,
-          headers: {
-            'Content-Type': 'application/json',
-            ...option?.headers,
-          },
-        });
+        const response = await fetch(url, memoizedOption);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -37,7 +41,7 @@ export const useFetch = <T>({ url, option }: UseFetchArgs) => {
       }
     };
     fetchData();
-  }, [url, option]);
+  }, [url, memoizedOption]);
 
   return { isLoading, isError, data, error };
 };
