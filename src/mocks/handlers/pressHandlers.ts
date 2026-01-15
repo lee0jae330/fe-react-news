@@ -3,6 +3,9 @@ import { http, HttpResponse } from 'msw';
 
 import { categories } from '../data/categories';
 import { presses } from '../data/presses';
+import { shuffle } from '../utils';
+
+import { subscriptions } from './pressSubscriptionHandlers';
 
 type Press = Schema.Press;
 
@@ -26,15 +29,18 @@ export const pressHandlers = [
 
   // 그리드 뷰 언론사 목록
   http.get('/api/presses/grid', () => {
-    const gridViewPressList = presses.map((p: Press) => ({
-      pressId: p.press,
-      pressName: p.press,
-      logo: p.logo,
-      darkLogo: p.darkLogo,
+    const gridViewPressList = presses.map(({ press, logo, darkLogo }) => ({
+      pressId: press,
+      pressName: press,
+      logo: logo,
+      darkLogo: darkLogo,
+      isSubscribed: subscriptions.has(press),
     }));
 
+    const shuffledGridViewPressList = shuffle(gridViewPressList).slice(0, 96);
+
     return HttpResponse.json({
-      presses: gridViewPressList,
+      presses: shuffledGridViewPressList,
     });
   }),
 
@@ -61,16 +67,33 @@ export const pressHandlers = [
       return new HttpResponse('invalid categoryName', { status: 400 });
     }
 
-    const pressesInCategory = presses
-      .filter((p: Press) => p.category === categoryName)
-      .map((p: Press) => ({
-        pressId: p.press,
-        pressName: p.press,
-        logo: p.logo,
-        darkLogo: p.darkLogo,
-        mainArticle: p.mainTitle,
-        relatedArticles: p.relatedArticles,
-      }));
+    const pressesInCategory = shuffle(
+      presses
+        .filter((p: Press) => p.category === categoryName)
+        .map(
+          ({
+            press,
+            logo,
+            darkLogo,
+            mainTitle,
+            mainLink,
+            mainImg,
+            relatedArticles,
+            time,
+          }: Press) => ({
+            pressId: press,
+            pressName: press,
+            logo: logo,
+            darkLogo: darkLogo,
+            mainTitle: mainTitle,
+            mainLink: mainLink,
+            mainImg: mainImg,
+            relatedArticles: relatedArticles,
+            time: time,
+            isSubscribed: subscriptions.has(press),
+          }),
+        ),
+    );
 
     return HttpResponse.json({
       presses: pressesInCategory,
