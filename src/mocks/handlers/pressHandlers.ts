@@ -6,6 +6,23 @@ import { presses } from '../data/presses';
 import type { Press } from '../types/press';
 
 export const pressHandlers = [
+  // 최신 뉴스 10개
+  http.get('/api/presses/latest-news', ({ request }) => {
+    const url = new URL(request.url);
+    const limit = Number(url.searchParams.get('limit') ?? 10);
+
+    const latest = presses.slice(0, limit).map((p: Press) => ({
+      pressId: p.press,
+      pressName: p.press,
+      title: p.mainTitle,
+      url: p.mainLink,
+    }));
+
+    return HttpResponse.json({
+      latestNews: latest,
+    });
+  }),
+
   // 그리드 뷰 언론사 목록
   http.get('/api/presses/grid', () => {
     const gridViewPressList = presses.map((p: Press) => ({
