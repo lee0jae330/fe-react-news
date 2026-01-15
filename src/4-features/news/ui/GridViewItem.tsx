@@ -1,6 +1,6 @@
-import { useCallback, useState } from 'react';
-
 import { PressLogo } from '@/5-entities/news';
+
+import { useMouseEnter } from '@/6-shared/model';
 
 import { PRESS_SUBSCRIBE_BUTTON_BACKGROUND_COLOR } from '../constants';
 
@@ -15,15 +15,7 @@ interface GridViewItemProps {
 export const GridViewItem = ({ press, logo, darkLogo }: GridViewItemProps) => {
   const isPress = press && logo && darkLogo;
 
-  const [isHover, setIsHover] = useState<boolean>(false);
-
-  const handleMouseEnter = useCallback(() => {
-    setIsHover(true);
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setIsHover(false);
-  }, []);
+  const { isMouseEnter, handleMouseEnter, handleMouseLeave } = useMouseEnter();
 
   return (
     <li
@@ -31,10 +23,10 @@ export const GridViewItem = ({ press, logo, darkLogo }: GridViewItemProps) => {
       onMouseEnter={isPress ? handleMouseEnter : undefined}
       onMouseLeave={isPress ? handleMouseLeave : undefined}
     >
-      {isPress && !isHover && (
+      {isPress && !isMouseEnter && (
         <PressLogo press={press} logo={logo} darkLogo={darkLogo} />
       )}
-      {isHover && (
+      {isMouseEnter && (
         <PressSubscribeToggle
           isSubscribed={false}
           hasText={true}
