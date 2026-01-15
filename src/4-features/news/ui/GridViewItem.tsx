@@ -7,13 +7,19 @@ import { PRESS_SUBSCRIBE_BUTTON_BACKGROUND_COLOR } from '../constants';
 import { PressSubscribeToggle } from './PressSubscribeToggle';
 
 interface GridViewItemProps {
-  press?: Schema.Press['press'];
+  pressName?: Schema.Press['press'];
   logo?: Schema.Press['logo'];
   darkLogo?: Schema.Press['darkLogo'];
+  isSubscribed: boolean;
 }
 
-export const GridViewItem = ({ press, logo, darkLogo }: GridViewItemProps) => {
-  const isPress = press && logo && darkLogo;
+export const GridViewItem = ({
+  pressName,
+  logo,
+  darkLogo,
+  isSubscribed,
+}: GridViewItemProps) => {
+  const isPress = pressName && logo && darkLogo;
 
   const { isMouseEnter, handleMouseEnter, handleMouseLeave } = useMouseEnter();
 
@@ -24,11 +30,11 @@ export const GridViewItem = ({ press, logo, darkLogo }: GridViewItemProps) => {
       onMouseLeave={isPress ? handleMouseLeave : undefined}
     >
       {isPress && !isMouseEnter && (
-        <PressLogo press={press} logo={logo} darkLogo={darkLogo} />
+        <PressLogo press={pressName} logo={logo} darkLogo={darkLogo} />
       )}
       {isMouseEnter && (
         <PressSubscribeToggle
-          isSubscribed={false}
+          isSubscribed={isSubscribed}
           hasText={true}
           subscribeBackgroundColor={
             PRESS_SUBSCRIBE_BUTTON_BACKGROUND_COLOR.DEFAULT
