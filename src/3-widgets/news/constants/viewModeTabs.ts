@@ -5,4 +5,4 @@ export const VIEW_MODE_TABS = {
   GRID: 'grid',
 } as const;
 
-export type ViewModeTab = ValueOf<typeof VIEW_MODE_TABS>;
+export type ViewModeTabs = ValueOf<typeof VIEW_MODE_TABS>;
