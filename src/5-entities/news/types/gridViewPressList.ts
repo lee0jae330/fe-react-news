@@ -29,8 +29,7 @@ export const isGridViewPressList = (
       typeof press.pressId !== 'string' ||
       typeof press.pressName !== 'string' ||
       typeof press.logo !== 'string' ||
-      typeof press.darkLogo !== 'string' ||
-      typeof press.isSubscribed !== 'boolean'
+      typeof press.darkLogo !== 'string'
     ) {
       return false;
     }
