@@ -16,7 +16,7 @@ export const pressSubscriptionsHandler = [
   // 구독 언론사
   http.get('/api/presses/subscriptions', () => {
     return HttpResponse.json({
-      subscriptions: Array.from(subscriptions.values()).map(
+      presses: Array.from(subscriptions.values()).map(
         ({
           press,
           logo,
