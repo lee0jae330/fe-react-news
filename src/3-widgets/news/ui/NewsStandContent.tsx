@@ -5,6 +5,7 @@ import { NextPageButton, PreviousPageButton } from '@/4-features/news';
 import {
   API_ENDPOINTS,
   type GridViewPressList,
+  isGridViewPressList,
   usePressGridContext,
 } from '@/5-entities/news';
 
@@ -41,7 +42,9 @@ export const NewsStandContent = () => {
           throw new Error('Network response was not ok');
         }
         const result: T = await response.json();
-        setGridPressList(result.presses);
+        if (isGridViewPressList(result)) {
+          setGridPressList(result.presses);
+        }
       } catch (error) {
         setIsError(true);
         if (error instanceof Error) {
