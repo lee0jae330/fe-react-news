@@ -19,7 +19,8 @@ export default defineConfig([
       'prettier/prettier': 'error',
       'no-var': 'error',
       'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
-      'no-unused-vars': 'error',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'error',
       'simple-import-sort/imports': [
         'error',
         {
