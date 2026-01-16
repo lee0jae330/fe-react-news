@@ -1,17 +1,62 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { NextPageButton, PreviousPageButton } from '@/4-features/news';
 
 import { API_ENDPOINTS, type GridViewPressList } from '@/5-entities/news';
 
-import { useFetch } from '@/6-shared/model';
+import { HTTP_OPTION } from '@/6-shared/constants';
 
 import { GridLayout } from './GridLayout';
 
 export const PressSection = () => {
-  const { data, error, isLoading, isError } = useFetch<GridViewPressList>({
-    url: API_ENDPOINTS.GRID_VIEW_PRESS_LIST,
-  });
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [data, setData] = useState<GridViewPressList | null>(null);
+  const [error, setError] = useState<Error | null>(null);
+
+  const fetchData = async <T extends GridViewPressList>({
+    url,
+    option,
+  }: {
+    url: string;
+    option?: RequestInit;
+  }) => {
+    setIsLoading(true);
+    setIsError(false);
+
+    try {
+      const response = await fetch(url, option);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const result: T = await response.json();
+      setData(result);
+    } catch (error) {
+      setIsError(true);
+      if (error instanceof Error) {
+        setError(error);
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const fetchGridViewPressList = () =>
+      fetchData<GridViewPressList>({
+        url: API_ENDPOINTS.GRID_VIEW_PRESS_LIST,
+        option: { ...HTTP_OPTION.GET },
+      });
+
+    const fetcSubscribedPressList = () =>
+      fetchData<GridViewPressList>({
+        url: API_ENDPOINTS.SUBSCRIPTIONS,
+        option: { ...HTTP_OPTION.GET },
+      });
+
+    fetchGridViewPressList();
+    fetcSubscribedPressList();
+  }, []);
 
   const [page, setPage] = useState<number>(0);
 
@@ -36,7 +81,7 @@ export const PressSection = () => {
   const hasPreviousPage = page > 0;
   const hasNextPage = page < TOTAL_PAGES - 1;
   return (
-    <section className="relative mx-auto mt-6 h-[388px] w-[930px]">
+    <section className="relative mx-auto mt-6 h-97 w-232.5">
       <GridLayout presses={currentPresses ?? []} />
       {hasPreviousPage && <PreviousPageButton onClick={handlePreviousPage} />}
       {hasNextPage && <NextPageButton onClick={handleNextPage} />}
