@@ -14,7 +14,7 @@ export const PressSubscribeToggle = ({
   hasText = true,
   subscribeBackgroundColor,
 }: PressSubscribeToggleProps) => {
-  const defaultClassName = `text-text-weak flex h-6 items-center justify-center gap-0.5 rounded-full px-1.5 border-default available-medium-12 hover:text-text-bold hover:border-border-bold`;
+  const defaultClassName = `text-text-weak flex h-6 items-center justify-center gap-0.5 rounded-full px-1.5 border-default available-medium-12 cursor-pointer hover:text-text-bold hover:border-border-bold`;
   const subscribeBackgroundColorClassName =
     subscribeBackgroundColor === 'default'
       ? 'bg-surface-default'
