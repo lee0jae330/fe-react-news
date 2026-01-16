@@ -2,15 +2,15 @@ import { useCallback, useState } from 'react';
 
 import { GridViewModeTab, ListViewModeTab } from '@/4-features/news';
 
-import { VIEW_MODE_TABS, type ViewModeTab } from '../constants';
+import { VIEW_MODE_TABS, type ViewModeTabs } from '../constants';
 
 export const ViewModeTabGroup = () => {
-  const [selectedTab, setSelectedTab] = useState<ViewModeTab>(
+  const [selectedTab, setSelectedTab] = useState<ViewModeTabs>(
     VIEW_MODE_TABS.LIST,
   );
 
   const handleSelectTab = useCallback(
-    (tab: ViewModeTab) => () => {
+    (tab: ViewModeTabs) => () => {
       setSelectedTab(tab);
     },
     [],
