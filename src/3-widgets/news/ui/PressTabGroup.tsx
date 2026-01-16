@@ -1,17 +1,18 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 
 import { SubscribedPressTab, TotalPressTab } from '@/4-features/news';
 
-import { PRESS_TABS, type PressTab } from '../constants';
+import { PRESS_TABS, type PressTabs } from '../constants';
+import { usePressTabContext } from '../model';
 
 export const PressTabGroup = () => {
-  const [selectedTab, setSelectedTab] = useState<PressTab>(PRESS_TABS.TOTAL);
+  const { selectedTab, setSelectedTab } = usePressTabContext();
 
   const handleSelectTab = useCallback(
-    (tab: PressTab) => () => {
+    (tab: PressTabs) => () => {
       setSelectedTab(tab);
     },
-    [],
+    [setSelectedTab],
   );
 
   return (
