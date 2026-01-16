@@ -21,8 +21,8 @@ export const PressTabGroup = () => {
         onClick={handleSelectTab(PRESS_TABS.TOTAL)}
       />
       <SubscribedPressTab
-        isSelected={selectedTab === PRESS_TABS.PRESS}
-        onClick={handleSelectTab(PRESS_TABS.PRESS)}
+        isSelected={selectedTab === PRESS_TABS.SUBSCRIBED}
+        onClick={handleSelectTab(PRESS_TABS.SUBSCRIBED)}
       />
     </div>
   );

@@ -2,7 +2,7 @@ import type { ValueOf } from '@/6-shared/util';
 
 export const PRESS_TABS = {
   TOTAL: 'total',
-  PRESS: 'press',
+  SUBSCRIBED: 'subscribed',
 } as const;
 
-export type PressTab = ValueOf<typeof PRESS_TABS>;
+export type PressTabs = ValueOf<typeof PRESS_TABS>;
